@@ -2,7 +2,6 @@
 using namespace std;
 void fillRandom(double* income, int size) {
 
-	srand(time(NULL));
 	for (int i = 0; i < size; i++)
 		income[i] = (rand()%21-10) * 0.1 ;		
 	
@@ -24,14 +23,14 @@ void mergeSort(vector<double>& income, size_t begin, size_t end) {
 	mergeSort(income, begin + (end - begin) / 2, end);
 
 	vector<double> tmp;
-	size_t tmp_begin_first = begin;					  //начало первой половинки
-	size_t tmp_end_first = begin + (end - begin) / 2; //конец первой половинки
-	size_t tmp_begin_second = tmp_end_first;		  //начало второй половинки, конец второй - end
+	size_t tmp_begin_first = begin;					  //Г­Г Г·Г Г«Г® ГЇГҐГ°ГўГ®Г© ГЇГ®Г«Г®ГўГЁГ­ГЄГЁ
+	size_t tmp_end_first = begin + (end - begin) / 2; //ГЄГ®Г­ГҐГ¶ ГЇГҐГ°ГўГ®Г© ГЇГ®Г«Г®ГўГЁГ­ГЄГЁ
+	size_t tmp_begin_second = tmp_end_first;		  //Г­Г Г·Г Г«Г® ГўГІГ®Г°Г®Г© ГЇГ®Г«Г®ГўГЁГ­ГЄГЁ, ГЄГ®Г­ГҐГ¶ ГўГІГ®Г°Г®Г© - end
 
 	while (tmp.size() < end - begin) {
-		//не осталось ни одного элемента в какой-либо из половинок
-		//если tmp_begin_first вышла за пределы массива то будем перекидывать элементы из tmp
-		//после || если tmp_begin second < end
+		//Г­ГҐ Г®Г±ГІГ Г«Г®Г±Гј Г­ГЁ Г®Г¤Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ  Гў ГЄГ ГЄГ®Г©-Г«ГЁГЎГ® ГЁГ§ ГЇГ®Г«Г®ГўГЁГ­Г®ГЄ
+		//ГҐГ±Г«ГЁ tmp_begin_first ГўГ»ГёГ«Г  Г§Г  ГЇГ°ГҐГ¤ГҐГ«Г» Г¬Г Г±Г±ГЁГўГ  ГІГ® ГЎГіГ¤ГҐГ¬ ГЇГҐГ°ГҐГЄГЁГ¤Г»ГўГ ГІГј ГЅГ«ГҐГ¬ГҐГ­ГІГ» ГЁГ§ tmp
+		//ГЇГ®Г±Г«ГҐ || ГҐГ±Г«ГЁ tmp_begin second < end
 		if (tmp_begin_first >= tmp_end_first || (tmp_begin_second < end && income[tmp_begin_second] <= income[tmp_begin_first])) {
 			tmp.push_back(income[tmp_begin_second]);
 			++tmp_begin_second;
