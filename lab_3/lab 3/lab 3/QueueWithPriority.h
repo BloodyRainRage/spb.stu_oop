@@ -24,7 +24,7 @@ class QueueWithPriority
     public: 
         void PutElementToQueue(const QueueElement& element, ElementPriority priority);
         QueueElement GetElementFromQueue();
-
+        void print();
         void Accelerate();
         //  онструктор, создает пустую очередь
         QueueWithPriority();

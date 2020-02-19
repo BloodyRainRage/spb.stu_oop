@@ -33,6 +33,7 @@ int main()
 	hospital.PutElementToQueue(QueueElement("coronavirus"), ElementPriority::HIGH);
 	hospital.PutElementToQueue(QueueElement("AIDS"), ElementPriority::LOW);
 	hospital.PutElementToQueue(QueueElement("cold"), ElementPriority::LOW);
+	hospital.print();
 	QueueElement qe = hospital.GetElementFromQueue();
 	hospital.PutElementToQueue(QueueElement("smth"), ElementPriority::LOW);
 	hospital.Accelerate();

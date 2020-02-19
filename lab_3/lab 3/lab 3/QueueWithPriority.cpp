@@ -32,6 +32,24 @@ void QueueWithPriority::Accelerate()
 	this->sortByPriority();
 }
 
+void QueueWithPriority::print() {
+	cout << endl;
+	sortByPriority();
+	for (auto it = queue.begin(); it != queue.end(); ++it) {
+		pair<ElementPriority, QueueElement>  tmp = *it;
+		string priority;
+		switch (tmp.first) {
+		case ElementPriority::HIGH: 
+			priority = "HIGH"; break;
+		case ElementPriority::LOW: 
+			priority = "LOW"; break;
+		case ElementPriority::NORMAL: 
+			priority = "NORMAL"; break;
+		}
+		cout << "element:" << priority << " " << tmp.second.name << endl;
+	}
+}
+
 QueueWithPriority::QueueWithPriority()
 {
 }

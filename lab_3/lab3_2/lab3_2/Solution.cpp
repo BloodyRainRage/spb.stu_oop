@@ -1,6 +1,7 @@
 #include "Solution.h"
 #include <algorithm>
 #include <iostream>
+#include <list>
 
 Solution::Solution() {
 
@@ -10,7 +11,7 @@ Solution::Solution() {
 
 }
 
-Solution::Solution(int value) {
+Solution::Solution(int value) {	
 	if (value >= 20) {
 		std::cout << std::endl << "You can create only in range of 1:15" << std::endl;
 		value = 15;
