@@ -58,6 +58,17 @@ void replaceSpaces(string &str) {
     str.erase(q, str.end());
 }
 
+void replaceNewline(string &str) {
+    for (auto i = str.begin(); i != str.end(); i++) {        
+
+        if (*i == '\n') {
+            
+            i = str.erase(i);            
+            
+        }
+    }
+}
+
 void restorePunctuation(string& str) {    
 
     for (auto i = str.begin()+1; i != str.end(); ++i) {
@@ -90,7 +101,7 @@ vector<string> reconfigure(string& str) {
     vector<string> resultVector;
     int pointer = 39;
     int i = 0;
-
+    replaceNewline(str);
     while (str.length() > 39) {
         auto strIterator = str.begin() + 39;
         if (!isspace(*strIterator)) {
@@ -118,17 +129,11 @@ vector<string> reconfigure(string& str) {
 
 int main()
 {
-    string text = readFile("resource.txt");
+    string text = readFile("lab_2.cpp");
     cout << text << endl;
     replaceSpaces(text);
     restorePunctuation(text);
     cout << text << endl;
-    //ofstream out;          // поток для записи
-    //out.open("result.txt"); // окрываем файл для записи
-    //if (out.is_open())
-    //{
-    //    out << text << std::endl;
-    //}
     replaceWord(text);
 
     cout << text << endl;
