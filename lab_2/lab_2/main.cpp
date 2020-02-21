@@ -1,23 +1,8 @@
-﻿/* lab_2.cpp : 
+/* lab_2.cpp : 
 *  by BadDragon at 14.02.2020 in educational purpose
 */
 
-/*Razrabotat' programmu, kotoraya dolzhna sdelat' sleduyushchee:
-1.	Prochitat' soderzhimoe tekstovogo fajla. Fajl mozhet soderzhat' :
-    a.Slova – sostoyat iz latinskih strochnyh i zaglavnyh bukv, a takzhe cifr, 
-    dlinna slova dolzhna byt' ne bolee 20 simvolov
-    b.Znaki prepinaniya – «.», «, » «!» « ? » « : » «; »
-    c.Probel'nye simvoly – probel, tabulyaciya, simvol novoj stroki.
-    2.	Otformatirovat' tekst sleduyushchim obrazom:
-    a.Ne dolzhno byt'  probel'nyh simvolov otlichnyh ot probela
-    b.Ne dolzhno idti podryad bolee odnogo probela
-    c.Mezhdu slovom i znakom prepinaniya ne dolzhno byt' probela
-    d.Posle znaka prepinaniya vsegda dolzhen idti probel
-    e.Slova dlinoj bolee 10 simvolov zamenyayutsya na slovo «Vau!!!»
-    3.	Preobrazovat' poluchennyj tekst v nabor stroka, kazhdaya iz kotoryh soderzhit 
-    celoe kolichestvo strok (slovo dolzhno celikom nahodit'sya v stroke) i ee dlinna ne 
-    prevyshaet 40 simvolov.
-*/
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -58,7 +43,7 @@ void replaceSpaces(string &str) {
 }
 
 void replaceNewline(string &str) {
-    for (auto i = str.begin(); i != str.end()-1; i++) {        
+    for (auto i = str.begin(); i != str.end(); i++) {        
 
         if (*i == '\n') {
             
@@ -66,7 +51,6 @@ void replaceNewline(string &str) {
             
         }
     }
-    int i;
 }
 
 void restorePunctuation(string& str) {    
@@ -77,11 +61,22 @@ void restorePunctuation(string& str) {
         }
     }
 
-    for (auto it = str.begin()+1; it != str.end(); ++it) {
+    for (auto it = str.begin(); it != str.end(); ++it) {
         if (ispunct(*it) && *(it - 1) == ' ') {
             it = str.erase(it - 1);
         }
     }
+    
+    /*for (auto i = str.begin()+1; i != str.end(); ++i) {
+        if (ispunct(*i) && (!isspace(*i))) {            
+            if (isspace(*(i - 1))) i = str.erase(i - 1);           
+        }        
+    }
+    for (auto i = str.begin(); i != str.end(); ++i) {
+        if (ispunct(*i) && (!isspace(*i))) {            
+            if (!isspace(*(i + 1))) i = str.insert(i + 1, 1, ' ');
+        }        
+    }*/
 }
 
 void replaceWord(string& str) {
@@ -103,12 +98,13 @@ vector<string> reconfigure(string& str) {
     int pointer = 39;
     int i = 0;
     replaceNewline(str);
-    while (str.length() >= 40) {
+    while (str.length() > 39) {
         auto strIterator = str.begin() + 39;
         if (!isspace(*strIterator)) {
-            do {
+            strIterator--;
+            while (!isspace(*strIterator)) {
                 strIterator--;
-            } while (!ispunct(*strIterator));
+            }
             int lastElem = distance(str.begin(), strIterator);
             resultVector.push_back(str.substr(0, lastElem));
             str.erase(0, lastElem);
@@ -129,10 +125,10 @@ vector<string> reconfigure(string& str) {
 
 int main()
 {
-    string text = readFile("main.cpp");
+    string text = readFile("lab_2.cpp");
     cout << text << endl;
     replaceSpaces(text);
-    restorePunctuation(text);
+    //restorePunctuation(text);
     cout << text << endl;
     replaceWord(text);
 
