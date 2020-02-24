@@ -33,14 +33,6 @@ bool needToSwap(DataStruct a, DataStruct b) {
 		return true;
 	return false;
 
-	/*if (a.key1 < b.key1)
-		return true;
-	else if ((a.key2 < b.key2) && a.key1 == b.key1)
-		return true;
-	else if (a.str.length() < b.str.length())
-		return true;
-	else return false;*/
-
 }
 
 void sort(vector<DataStruct> &income) {
