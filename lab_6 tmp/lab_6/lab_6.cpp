@@ -35,7 +35,7 @@ using namespace std;
 
 int main()
 {    
-
+    cout << "-------first task -------" << endl;
     vector<string> vect;
     readFile(vect);
 
