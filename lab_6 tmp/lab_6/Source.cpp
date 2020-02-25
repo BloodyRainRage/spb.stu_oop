@@ -68,7 +68,7 @@ Shape add(Point a, Point b, Point c, Point d) {
 	Shape shape;
 
 	if (isSquare(a, b, c, d))
-		shape.name = "suqare";
+		shape.name = "square";
 	else if (isRectangle(a, b, c, d))
 		shape.name = "rectangle";
 	else shape.name = "quadrangle";
@@ -216,7 +216,7 @@ bool sortShapes(Shape& sh1, Shape& sh2) {
 
 	if (sh2.vertex_num > sh1.vertex_num) return true;
 	
-	if (sh2.name == "square" && sh1.name == "rectangle") return true;
+	if (sh1.name == "square" && (sh2.name == "rectangle" || sh2.name == "quadrangle")) return true;
 
 	return false;
 }

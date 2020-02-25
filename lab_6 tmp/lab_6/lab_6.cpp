@@ -49,11 +49,18 @@ int main()
     srand(time(NULL));
 
     vector<Shape> shapes;
-
+    
+    cout << "-------- first fill" << endl;    
 
     fill(shapes, 10);
-    cout << "-------- first fill" << endl;
+    Point p1 = { 10,20 };
+    Point p2 = { 10,10 };
+    Point p3 = { 20,20 };
+    Point p4 = { 20,10 };
+
+    shapes.push_back(add(p1, p2, p3, p4));
     for_each(shapes.begin(), shapes.end(), print);
+
 
     cout << endl << endl << "-------- amount of vertexes ";
     int count = 0;
