@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{8A9555CD-BFD0-4A86-AF0A-B8CC44391055}</ProjectGuid>
+    <ProjectGuid>{D8BD0FAB-BD16-4324-A829-A09363C26708}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>lab6</RootNamespace>
+    <RootNamespace>lab5</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -148,6 +148,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="lab_6.cpp" />
+    <ClCompile Include="Source.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Header.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resource.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
