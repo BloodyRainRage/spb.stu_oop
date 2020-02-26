@@ -10,7 +10,7 @@ void fillVector(std::vector<uint32_t>& income) {
 
     income.clear();
 
-    for (int i = 0; i < 10; ++i)
+    for (int i = 0; i < 100; ++i)
         income.push_back(rand() % 1001 - 500);
 
 }
