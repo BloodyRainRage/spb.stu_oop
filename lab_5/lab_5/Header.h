@@ -19,9 +19,9 @@ void readFile(std::ifstream&, std::vector<std::string>&);
 DataStruct fillStruct(std::vector<std::string>);
 
 //sortin a vector of DataStruct
-void sort(std::vector<DataStruct>&);
+//void sort(std::vector<DataStruct>&);
 //Check if should two values be swapped
-bool needToSwap(DataStruct, DataStruct);
+bool needToSwap(DataStruct&, DataStruct&);
 
 //printing a vector of DataStruct
 void print(std::vector<DataStruct>);

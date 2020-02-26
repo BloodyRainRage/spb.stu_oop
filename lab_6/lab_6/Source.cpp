@@ -8,7 +8,7 @@ using namespace std;
 void readFile(vector<string> &resultVector) {
 
 	ifstream input;
-	input.open("resource.txt");
+	input.open("lab_6.cpp");
 	
 	string word;
 

@@ -40,7 +40,7 @@ int main()
     readFile(vect);
 
     for (auto elem : vect)
-        cout << elem << " ";
+        cout << elem << "\n ";
 
 
     cout << endl;

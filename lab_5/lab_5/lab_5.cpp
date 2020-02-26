@@ -23,6 +23,7 @@ typedef struct
 #include <iostream>
 #include "Header.h"
 #include <time.h>
+#include <algorithm>
 
 using namespace std;
 
@@ -43,7 +44,8 @@ int main()
     cout << "Vector before sort:";
     print(ds);
 
-    sort(ds);
+    //sort(ds);
+    sort(ds.begin(), ds.end(), needToSwap);
     
     cout << "Vector after sort:";
     print(ds);

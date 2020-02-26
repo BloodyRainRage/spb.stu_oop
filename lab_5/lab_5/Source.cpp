@@ -23,7 +23,7 @@ DataStruct fillStruct(vector<string> table) {
 	return ds;
 }
 
-bool needToSwap(DataStruct a, DataStruct b) {
+bool needToSwap(DataStruct &a, DataStruct& b) {
 
 	if (a.key1 > b.key1)
 		return true;
@@ -35,20 +35,23 @@ bool needToSwap(DataStruct a, DataStruct b) {
 
 }
 
-void sort(vector<DataStruct> &income) {
-
-	for (int i = 0; i < income.size(); ++i)
-	{
-		for (int j = i + 1; j < income.size(); ++j)
-		{
-			if (needToSwap(income[i], income[j])) {
-				DataStruct temp = income[i];
-				income[i] = income[j];
-				income[j] = temp;
-			}
-		}
-	}
-}
+//void sort(vector<DataStruct> &income) {
+//
+//	/*for (int i = 0; i < income.size(); ++i)
+//	{
+//		for (int j = i + 1; j < income.size(); ++j)
+//		{
+//			if (needToSwap(income[i], income[j])) {
+//				DataStruct temp = income[i];
+//				income[i] = income[j];
+//				income[j] = temp;
+//			}
+//		}
+//	}*/
+//
+//	
+//
+//}
 
 
 void print(vector<DataStruct> income) {
