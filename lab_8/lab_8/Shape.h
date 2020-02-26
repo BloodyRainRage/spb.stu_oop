@@ -18,8 +18,8 @@ protected:
 
 public:
 	virtual void Draw()=0;
-	bool isMoreLeft(Shape&);
-	bool isMoreUpper(Shape&);
+	bool isMoreLeft(Shape*);
+	bool isMoreUpper(Shape*);
 
 	int getX();
 	int getY();

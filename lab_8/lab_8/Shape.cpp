@@ -18,20 +18,20 @@ double mult(double& d) {
 
 
 //-------Task2-------//
-int Shape::getX() { return x; }
-int Shape::getY(){ return y; }
+int Shape::getX() { return this->x; }
+int Shape::getY(){ return this->y; }
 
 std::pair<int, int> Shape::getXY(){
 	return std::make_pair(x, y);
 }
 
 
-bool Shape::isMoreLeft(Shape &income) {
-	return this->x < income.x;
+bool Shape::isMoreLeft(Shape *income) {
+	return this->x < income->getX();
 }
 
-bool Shape::isMoreUpper(Shape &income) {
-	return this->y > income.x;
+bool Shape::isMoreUpper(Shape *income) {
+	return this->y > income->getY();
 }
 
 Triangle::Triangle(int x, int y) {	
@@ -69,17 +69,17 @@ void Square::Draw() {
 
 
 bool leftToRight(Shape* sh1, Shape* sh2) {
-	return sh1->getX() > sh2->getX();
+	return sh1->isMoreLeft(sh2);
 }
 
-bool rightToLeft(Shape& sh1, Shape& sh2) {
-	return sh1.getX() < sh2.getX();
+bool rightToLeft(Shape* sh1, Shape* sh2) {
+	return !(sh1->isMoreLeft(sh2));
 }
 
 bool topToBottom(Shape* sh1, Shape* sh2) {
-	return sh1->getY() > sh2->getY();
+	return sh1->isMoreUpper(sh2);
 }
 
 bool bottomToTop(Shape* sh1, Shape* sh2) {
-	return sh1->getY() < sh2->getY();
+	return sh2->isMoreUpper(sh1);
 }
